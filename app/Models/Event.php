@@ -9,6 +9,8 @@ class Event extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'events';
+
     protected $fillable = [
         'image',
         'title',

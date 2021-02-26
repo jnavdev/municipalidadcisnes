@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\PressRepository;
-use Yajra\Datatables\Facades\Datatables;
-use App\Press;
+use Yajra\DataTables\DataTables;
+use App\Models\Press;
 
 class PressController extends Controller
 {

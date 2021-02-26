@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TurismArticleImage extends Model
 {
+    protected $table = 'turism_article_images';
+
     protected $fillable = [
         'image',
         'turism_article_id',

@@ -9,6 +9,8 @@ class TurismArticle extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'turism_articles';
+
     protected $fillable = [
         'image',
         'title',

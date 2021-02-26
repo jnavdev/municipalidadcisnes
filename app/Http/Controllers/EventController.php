@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\EventRepository;
-use Yajra\Datatables\Facades\Datatables;
-use App\Event;
+use Yajra\DataTables\DataTables;
+use App\Models\Event;
 
 class EventController extends Controller
 {

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
-use App\User;
-use App\Permission;
-use Yajra\Datatables\Facades\Datatables;
+use App\Models\User;
+use App\Models\Permission;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
@@ -33,7 +33,7 @@ class UserController extends Controller
                 return '<button data-id="'.$user->id.'" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
             })->addColumn('created_at', function ($user) {
                 return date('d-m-Y', strtotime($user->created_at));
-            })->make(true);
+            })->rawColumns(['edit', 'destroy'])->make(true);
     }
 
     public function create()

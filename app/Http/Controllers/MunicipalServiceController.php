@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\MunicipalServiceRepository;
-use App\MunicipalService;
-use Yajra\Datatables\Facades\Datatables;
+use App\Models\MunicipalService;
+use Yajra\DataTables\DataTables;
 
 class MunicipalServiceController extends Controller
 {
@@ -32,7 +32,7 @@ class MunicipalServiceController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/municipalservices/' . $municipalService->id . '/edit"><span class="fa fa-pencil"></span></a>';
             })->addColumn('destroy', function ($municipalService) {
                 return '<button data-id="' . $municipalService->id . '" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['edit', 'destroy'])->make(true);
     }
 
     public function create()

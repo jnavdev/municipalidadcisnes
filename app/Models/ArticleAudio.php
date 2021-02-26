@@ -9,6 +9,8 @@ class ArticleAudio extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'article_audios';
+
     protected $fillable = [
         'url',
         'article_id',

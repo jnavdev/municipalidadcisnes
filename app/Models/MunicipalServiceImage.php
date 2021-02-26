@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MunicipalServiceImage extends Model
 {
+    protected $table = 'municipal_service_images';
+
     protected $fillable = [
         'image',
         'municipal_service_id',

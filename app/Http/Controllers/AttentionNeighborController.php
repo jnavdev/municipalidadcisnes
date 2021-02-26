@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\AttentionNeighbor;
-use Illuminate\Http\Request;
+use App\Models\AttentionNeighbor;
 use Illuminate\Support\Facades\File;
-use Yajra\Datatables\Facades\Datatables;
+use Yajra\DataTables\DataTables;
 
 class AttentionNeighborController extends Controller
 {
@@ -29,7 +28,7 @@ class AttentionNeighborController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/attentionneighbors/' . $attentionneighbor->id . '"><span class="fa fa-eye"></span></a>';
             })->addColumn('destroy', function ($attentionneighbor) {
                 return '<button data-id="' . $attentionneighbor->id . '" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['file', 'show', 'destroy'])->make(true);
     }
 
     public function show($id)

@@ -9,6 +9,8 @@ class MunicipalService extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'municipal_services';
+
     protected $fillable = [
         'image',
         'title',

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\VideoRepository;
-use App\Video;
-use Yajra\Datatables\Facades\Datatables;
+use App\Models\Video;
+use Yajra\DataTables\DataTables;
 
 class VideoController extends Controller
 {
@@ -30,7 +30,7 @@ class VideoController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/videos/' . $video->id . '/edit"><span class="fa fa-pencil"></span></a>';
             })->addColumn('destroy', function ($video) {
                 return '<button data-id="'.$video->id.'" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['edit', 'destroy'])->make(true);
     }
 
     public function create()

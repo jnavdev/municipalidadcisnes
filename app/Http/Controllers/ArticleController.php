@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ArticleRepository;
-use Yajra\Datatables\Facades\Datatables;
-use App\Article;
-use App\ArticleImage;
-use App\ArticleAudio;
-use App\ArticleVideo;
+use Yajra\DataTables\DataTables;
+use App\Models\Article;
 
 class ArticleController extends Controller
 {
@@ -39,7 +36,7 @@ class ArticleController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/articles/' . $article->id . '/edit"><span class="fa fa-pencil"></span></a>';
             })->addColumn('destroy', function ($article) {
                 return '<button data-id="' . $article->id . '" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['edit', 'destroy'])->make(true);
     }
 
     public function create()

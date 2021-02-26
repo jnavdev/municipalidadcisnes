@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\InformationRepository;
-use Yajra\Datatables\Facades\Datatables;
-use App\Information;
+use Yajra\DataTables\DataTables;
+use App\Models\Information;
 
 class InformationController extends Controller
 {
@@ -54,7 +54,7 @@ class InformationController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/informations/' . $information->id . '/edit"><span class="fa fa-pencil"></span></a>';
             })->addColumn('destroy', function ($information) {
                 return '<button data-id="' . $information->id . '" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['is_poster', 'poster_order', 'edit', 'destroy'])->make(true);
     }
 
     public function create()

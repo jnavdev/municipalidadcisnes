@@ -9,6 +9,8 @@ class AttentionNeighbor extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'attention_neighbors';
+
     protected $fillable = [
         'reason',
         'rut',

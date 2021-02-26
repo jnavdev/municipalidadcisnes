@@ -9,6 +9,8 @@ class ArticleVideo extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'article_videos';
+
     protected $fillable = [
         'url',
         'article_id',

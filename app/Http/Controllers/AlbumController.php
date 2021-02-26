@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Album;
-use App\Image;
+use App\Models\Album;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Repositories\AlbumRepository;
 use Intervention\Image\Facades\Image as InterventionImage;
-use Yajra\Datatables\Facades\Datatables;
+use Yajra\DataTables\DataTables;
 
 class AlbumController extends Controller
 {

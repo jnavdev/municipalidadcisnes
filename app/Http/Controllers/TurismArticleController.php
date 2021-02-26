@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\TurismArticleRepository;
-use Yajra\Datatables\Facades\Datatables;
-use App\TurismArticle;
-use App\TurismArticleImage;
+use Yajra\DataTables\DataTables;
+use App\Models\TurismArticle;
+use App\Models\TurismArticleImage;
 
 class TurismArticleController extends Controller
 {
@@ -33,7 +33,7 @@ class TurismArticleController extends Controller
                 return '<a class="btn btn-sm btn-primary" href="/admin/turismarticles/' . $article->id . '/edit"><span class="fa fa-pencil"></span></a>';
             })->addColumn('destroy', function ($article) {
                 return '<button data-id="' . $article->id . '" class="btn btn-sm btn-danger boton-eliminar"><span class="fa fa-trash"></span></button>';
-            })->make(true);
+            })->rawColumns(['edit', 'destroy'])->make(true);
     }
 
     public function create()
